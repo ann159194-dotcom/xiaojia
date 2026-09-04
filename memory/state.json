@@ -1,0 +1,9 @@
+{
+  "last_user_activity": null,
+  "last_autonomous_wake": null,
+  "next_check": null,
+  "last_check": null,
+  "status": "initialized",
+  "wake_count": 0,
+  "user_return_detected": false
+}
