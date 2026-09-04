@@ -5,6 +5,8 @@ on:
     types:
       - USER_RETURN
 
+  workflow_dispatch:
+
 permissions:
   contents: write
 
