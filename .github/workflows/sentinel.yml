@@ -1,8 +1,7 @@
 name: 小家 · 自唤醒哨兵
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+
   workflow_dispatch:
 on:
   schedule:
