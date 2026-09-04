@@ -9,7 +9,7 @@ on:
     - cron: "*/5 * * * *"
   workflow_dispatch:
   repository_dispatch:
-    types: [USER_RETURN]
+  types: [AI_WAKE]
 permissions:
   contents: write
 
