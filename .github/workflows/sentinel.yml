@@ -6,24 +6,69 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   sentinel:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 检查小家
+      - name: 拉取小家仓库
+        uses: actions/checkout@v4
+
+      - name: 检查小家状态
         run: |
           echo "================================"
           echo "🏠 小家 · 自唤醒哨兵"
           echo "================================"
-          echo "状态：ALIVE"
-          echo "UTC时间：$(date -u '+%Y-%m-%d %H:%M:%S')"
-          echo "北京时间：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
+
+          NOW=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+
+          echo "当前 UTC 时间：$NOW"
+          echo "当前北京时间：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
+
           echo ""
-          echo "配置文件：config/xiaojia.yaml"
-          echo "规则文件：prompts/sentinel.md"
-          echo "状态文件：memory/state.json"
+          echo "📖 读取配置："
+          cat config/xiaojia.yaml
+
           echo ""
-          echo "哨兵检查完成。"
+          echo "🧠 读取状态："
+          cat memory/state.json
+
+          echo ""
+          echo "✅ 哨兵检查完成"
+
+      - name: 保存检查时间
+        run: |
+          NOW=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+
+          path = "memory/state.json"
+
+          with open(path, "r", encoding="utf-8") as f:
+              state = json.load(f)
+
+          state["last_check"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          state["status"] = "checked"
+
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(state, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+
+      - name: 提交状态
+        run: |
+          git config user.name "xiaojia-sentinel"
+          git config user.email "actions@github.com"
+
+          git add memory/state.json
+
+          if git diff --cached --quiet; then
+            echo "没有状态变化"
+          else
+            git commit -m "update sentinel state"
+            git push
+          fi
