@@ -1,9 +1,9 @@
 {
   "last_user_activity": null,
   "last_autonomous_wake": null,
-  "last_check": "2026-09-04T16:26:37Z",
+  "last_check": "2026-09-04T16:37:19Z",
   "next_check": null,
-  "status": "checked",
+  "status": "waiting_for_user_activity",
   "wake_count": 0,
   "user_return_detected": false,
   "pending_wake": false
