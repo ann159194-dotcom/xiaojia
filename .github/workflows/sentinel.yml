@@ -40,7 +40,9 @@ jobs:
       - name: 检查用户空闲时间
         run: |
           python scripts/check_idle.py
-
+- name: 主动唤醒决策
+  run: |
+    python scripts/wake_decision.py
       - name: 查看检查结果
         run: |
           echo "================================"
