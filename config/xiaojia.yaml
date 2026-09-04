@@ -1,0 +1,64 @@
+# 小家 · 外部主动层配置
+# 当前阶段：基础配置
+
+system:
+  name: "小家"
+  timezone: "Asia/Shanghai"
+  enabled: true
+
+schedule:
+  mode: "day_night"
+
+  daytime:
+    start: "08:00"
+    end: "24:00"
+    idle_delay_minutes: 30
+    autonomous_interval_min: 30
+    autonomous_interval_max: 120
+
+  nighttime:
+    start: "00:00"
+    end: "08:00"
+    idle_delay_minutes: 60
+    autonomous_interval_min: 120
+    autonomous_interval_max: 360
+
+  quiet_hours:
+    enabled: false
+    start: "00:00"
+    end: "00:00"
+
+behavior:
+  chat: true
+  continue_recent_topic: true
+  organize_recent_thoughts: true
+  low_risk_reversible_actions: true
+
+message:
+  style: "natural"
+  variable_length: true
+  avoid_fixed_templates: true
+
+memory:
+  provider: "notion"
+  enabled: true
+
+safety:
+  spending: false
+  purchases: false
+  account_changes: false
+  password_changes: false
+  security_changes: false
+  identity_changes: false
+  important_deletions: false
+  irreversible_actions: false
+  third_party_commitments: false
+  public_sensitive_data: false
+
+wake:
+  marker_enabled: true
+  marker_format: "[AI_WAKE YYYY-MM-DD HH:MM:SS]"
+
+test:
+  enabled: false
+  idle_delay_minutes: 3
