@@ -4,11 +4,10 @@ on:
 
   workflow_dispatch:
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
+
   repository_dispatch:
-  types: [AI_WAKE]
+    types: [AI_WAKE]
 permissions:
   contents: write
 
