@@ -13,11 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 哨兵启动
+      - name: 检查小家
         run: |
           echo "================================"
-          echo "XIAOJIA_SENTINEL=ALIVE"
+          echo "🏠 小家 · 自唤醒哨兵"
           echo "================================"
-          echo "UTC: $(date -u '+%Y-%m-%d %H:%M:%S')"
-          echo "Shanghai: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
-          echo "Status: 小家哨兵正常运行"
+          echo "状态：ALIVE"
+          echo "UTC时间：$(date -u '+%Y-%m-%d %H:%M:%S')"
+          echo "北京时间：$(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S')"
+          echo ""
+          echo "配置文件：config/xiaojia.yaml"
+          echo "规则文件：prompts/sentinel.md"
+          echo "状态文件：memory/state.json"
+          echo ""
+          echo "哨兵检查完成。"
