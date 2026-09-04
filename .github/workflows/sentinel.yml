@@ -36,7 +36,9 @@ jobs:
           echo ""
           echo "📊 当前状态："
           cat memory/state.json
-
+      - name: 模拟 USER_RETURN
+        run: |
+          python scripts/test_user_return.py
       - name: 检查用户空闲时间
         run: |
           python scripts/check_idle.py
