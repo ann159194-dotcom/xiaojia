@@ -1,10 +1,12 @@
 {
   "last_user_activity": null,
   "last_autonomous_wake": null,
-  "last_check": "2026-09-04T17:11:30Z",
+  "last_check": "2026-09-04T17:22:08Z",
   "next_check": null,
   "status": "waiting",
   "wake_count": 0,
   "user_return_detected": false,
-  "pending_wake": false
+  "pending_wake": false,
+  "last_decision": "2026-09-04T17:22:08Z",
+  "wake_decision": "wait"
 }
