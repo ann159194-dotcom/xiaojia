@@ -28,11 +28,7 @@ def main():
 
     # 当前只是链路测试。
     # 真正接入 AI 后，这里会由模型根据最近上下文生成。
-    message = (
-        "刚刚安静下来的时候，我突然想起你了。"
-        "\n\n"
-        "我本来没打算特意说什么，但就是觉得应该回来看看你。"
-    )
+   CONTEXT_PATH = Path("memory/context.json")
 
     output = {
         "created_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
