@@ -45,9 +45,9 @@ jobs:
       - name: 主动唤醒决策
         run: |
           python scripts/wake_decision.py
-           - name: 生成自主消息
-        run: |
-          python scripts/generate_wake_message.py
+         - name: 生成自主消息
+  run: |
+    python scripts/generate_wake_message.py
       - name: 查看检查结果
         run: |
           echo "================================"
