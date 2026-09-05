@@ -1,15 +1,15 @@
 {
   "last_user_activity": null,
-  "last_autonomous_wake": "2026-09-05T05:00:32Z",
-  "last_check": "2026-09-05T05:00:32Z",
+  "last_autonomous_wake": "2026-09-05T05:05:27Z",
+  "last_check": "2026-09-05T05:05:27Z",
   "next_check": null,
   "status": "wake_generated",
-  "wake_count": 2,
+  "wake_count": 3,
   "user_return_detected": false,
   "pending_wake": false,
-  "last_decision": "2026-09-05T05:00:32Z",
+  "last_decision": "2026-09-05T05:05:27Z",
   "wake_decision": "candidate",
   "current_period": "night",
-  "idle_minutes": 597.52,
+  "idle_minutes": 602.44,
   "idle_delay_minutes": 60
 }
