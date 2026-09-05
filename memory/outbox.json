@@ -1,7 +1,6 @@
 {
-  "created_at": "2026-09-05T21:10:46Z",
+  "created_at": "2026-09-05T21:15:48Z",
   "type": "AI_WAKE",
   "message": "我刚刚突然想到你了。",
-  "status": "delivered",
-  "delivered_at": "2026-09-05T21:10:48.892Z"
+  "status": "pending"
 }
