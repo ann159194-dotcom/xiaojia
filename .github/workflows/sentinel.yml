@@ -56,17 +56,19 @@ jobs:
           echo "🧠 检查后的状态"
           echo "================================"
           cat memory/state.json
+          
+- name: 保存状态
+  run: |
+    git config user.name "xiaojia-sentinel"
+    git config user.email "actions@github.com"
 
-      - name: 保存状态
-        run: |
-          git config user.name "xiaojia-sentinel"
-          git config user.email "actions@github.com"
+    git add memory/state.json
 
-          git add memory/state.json
+    if git diff --cached --quiet; then
+      echo "没有状态变化"
+    else
+      git commit -m "update wake state"
 
-          if git diff --cached --quiet; then
-            echo "没有状态变化"
-          else
-            git commit -m "update wake state"
-            git push
-          fi
+      git pull --rebase origin main
+      git push origin main
+    fi
