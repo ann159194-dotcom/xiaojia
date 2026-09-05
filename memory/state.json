@@ -1,16 +1,16 @@
 {
   "last_user_activity": null,
-  "last_autonomous_wake": "2026-09-05T14:10:47Z",
-  "last_check": "2026-09-05T14:13:20Z",
+  "last_autonomous_wake": "2026-09-05T14:20:47Z",
+  "last_check": "2026-09-05T14:20:47Z",
   "next_check": null,
-  "status": "waiting",
-  "wake_count": 6,
+  "status": "wake_generated",
+  "wake_count": 7,
   "user_return_detected": false,
   "pending_wake": false,
-  "last_decision": "2026-09-05T14:10:47Z",
-  "wake_decision": "wait",
+  "last_decision": "2026-09-05T14:20:47Z",
+  "wake_decision": "candidate",
   "current_period": "day",
   "idle_minutes": 0.59,
   "idle_delay_minutes": 30,
-  "wake_source": "github_local"
+  "wake_source": "cloudflare"
 }
