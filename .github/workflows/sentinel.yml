@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
   repository_dispatch:
-    types: [AI_WAKE]
+    types:
+      - AI_WAKE
 
 permissions:
   contents: write
@@ -16,6 +17,8 @@ jobs:
     steps:
       - name: 拉取小家仓库
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 检查小家状态
         run: |
@@ -45,29 +48,47 @@ jobs:
       - name: 主动唤醒决策
         run: |
           python scripts/wake_decision.py
-          
+
       - name: 生成自主消息
         run: |
           python scripts/generate_wake_message.py
-        
+
       - name: 查看检查结果
         run: |
           echo "================================"
           echo "🧠 检查后的状态"
           echo "================================"
+
           cat memory/state.json
-          
-           - name: 保存状态
+
+          echo ""
+          echo "================================"
+          echo "💬 自主消息"
+          echo "================================"
+
+          if [ -f memory/outbox.json ]; then
+            cat memory/outbox.json
+          else
+            echo "当前没有待发送消息"
+          fi
+
+      - name: 保存状态
         run: |
           git config user.name "xiaojia-sentinel"
           git config user.email "actions@github.com"
 
           git add memory/state.json
 
+          if [ -f memory/outbox.json ]; then
+            git add memory/outbox.json
+          fi
+
           if git diff --cached --quiet; then
             echo "没有状态变化"
           else
             git commit -m "update wake state"
+
             git pull --rebase origin main
+
             git push origin main
           fi
