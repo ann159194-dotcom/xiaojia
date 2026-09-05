@@ -1,12 +1,15 @@
 {
   "last_user_activity": null,
   "last_autonomous_wake": null,
-  "last_check": "2026-09-04T17:31:18Z",
+  "last_check": "2026-09-05T04:42:09Z",
   "next_check": null,
-  "status": "waiting",
+  "status": "wake_candidate",
   "wake_count": 0,
   "user_return_detected": false,
-  "pending_wake": false,
-  "last_decision": "2026-09-04T17:31:18Z",
-  "wake_decision": "wait"
+  "pending_wake": true,
+  "last_decision": "2026-09-05T04:42:09Z",
+  "wake_decision": "candidate",
+  "current_period": "night",
+  "idle_minutes": 579.14,
+  "idle_delay_minutes": 60
 }
