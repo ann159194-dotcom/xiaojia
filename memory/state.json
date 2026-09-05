@@ -1,7 +1,7 @@
 {
   "last_user_activity": null,
   "last_autonomous_wake": "2026-09-05T09:35:29Z",
-  "last_check": "2026-09-05T13:55:48Z",
+  "last_check": "2026-09-05T14:00:56Z",
   "next_check": null,
   "status": "waiting",
   "wake_count": 4,
@@ -10,6 +10,6 @@
   "last_decision": "2026-09-05T09:35:29Z",
   "wake_decision": "wait",
   "current_period": "day",
-  "idle_minutes": 23.56,
+  "idle_minutes": 28.69,
   "idle_delay_minutes": 30
 }
